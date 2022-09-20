@@ -6,8 +6,8 @@ import android.widget.Toast
 import androidx.core.view.isGone
 import android.os.Bundle
 import android.view.View
+import android.widget.Switch
 import com.example.practicavos2.databinding.ActivityMainBinding
-
 import java.util.*
 
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
@@ -26,18 +26,22 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         tts = TextToSpeech(this, this)
         mensaje = binding.pltxt1.text.toString()
         nombre = binding.pltxt2.text.toString()
+
         binding.Sw.setOnCheckedChangeListener { compoundButton, isChecked ->
             if (isChecked) {
+
                 binding.txtmensaje.isGone
                 binding.btnProcesar.setOnClickListener {
                     speakMessage()
-                    binding.txtNombre.text = nombre + ":" + " " + mensaje
+                    binding.txtNombre.text = nombre.toString() + ":" + " " + mensaje.toString()
+
                 }
             } else
 
                 binding.btnProcesar.setOnClickListener {
-                    binding.txtNombre.text = nombre
-                    binding.txtmensaje.text = mensaje
+                    binding.txtNombre.text = nombre.toString()
+                    binding.txtmensaje.text = mensaje.toString()
+
                 }
         }
         speakMessage()
@@ -61,6 +65,8 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             tts.language = Locale("ES")
             "Estado funcional correcto"
         } else "Algo salio mal,pruebe despues"
+
         Toast.makeText(this, resultado, Toast.LENGTH_SHORT).show()
+        
     }
 }
