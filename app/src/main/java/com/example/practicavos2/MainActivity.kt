@@ -60,6 +60,6 @@ private fun OPCIONSW(){
         } else "Algo salio mal,pruebe despues"
 
         Toast.makeText(this, resultado, Toast.LENGTH_SHORT).show()
-        
+        //ya funciona jajaja
     }
 }
