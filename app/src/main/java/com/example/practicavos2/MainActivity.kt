@@ -36,11 +36,10 @@ private fun OPCIONSW(){
         mensaje = binding.pltxt1.text.toString()
         nombre = binding.pltxt2.text.toString()
 
-
             if (binding.Sw.isChecked == true) {
 
-                binding.txtNombre.text = mensaje + nombre
-                tts.speak(nombre + mensaje, TextToSpeech.QUEUE_FLUSH, null, "")
+                binding.txtNombre.text = nombre+ mensaje
+                tts.speak(mensaje + nombre, TextToSpeech.QUEUE_FLUSH, null, "")
             } else {
                 binding.txtNombre.text = mensaje
                 tts.speak(mensaje, TextToSpeech.QUEUE_FLUSH, null, "")
