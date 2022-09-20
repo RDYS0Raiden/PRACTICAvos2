@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private var mensaje:String?=null
     private var nombre:String?=null
+
     private lateinit var tts:TextToSpeech
 
     private lateinit var binding: ActivityMainBinding
@@ -24,36 +25,31 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         val view=binding.root
         setContentView(view)
         tts = TextToSpeech(this, this)
+        binding.btnProcesar.setOnClickListener {
+            OPCIONSW()
+        }
+
+    }
+
+private fun OPCIONSW(){
+
         mensaje = binding.pltxt1.text.toString()
         nombre = binding.pltxt2.text.toString()
 
         binding.Sw.setOnCheckedChangeListener { compoundButton, isChecked ->
-            if (isChecked) {
+            if (binding.Sw.isChecked==true) {
 
-                binding.txtmensaje.isGone
-                binding.btnProcesar.setOnClickListener {
-                    speakMessage()
-                    binding.txtNombre.text = nombre.toString() + ":" + " " + mensaje.toString()
 
-                }
+                binding.txtNombre.text = nombre+mensaje
+                tts.speak(nombre+mensaje,TextToSpeech.QUEUE_FLUSH,null,"")
+
             } else
+                binding.txtNombre.text = mensaje
+                tts.speak(mensaje,TextToSpeech.QUEUE_FLUSH,null,"")
 
-                binding.btnProcesar.setOnClickListener {
-                    binding.txtNombre.text = nombre.toString()
-                    binding.txtmensaje.text = mensaje.toString()
-
-                }
         }
-        speakMessage()
-    }
 
-
-
-    private fun speakMessage() {
-        mensaje = binding.pltxt1.text.toString()+" "+binding.pltxt2.text.toString()
-
-        tts.speak(mensaje,TextToSpeech.QUEUE_FLUSH,null,"")
-    }
+}
 
     override fun onInit(status: Int) {
         var resultado = if (status == TextToSpeech.SUCCESS) {
