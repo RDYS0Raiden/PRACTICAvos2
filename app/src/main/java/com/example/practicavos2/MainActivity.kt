@@ -38,7 +38,7 @@ private fun OPCIONSW(){
 
             if (binding.Sw.isChecked == true) {
 
-                binding.txtNombre.text = nombre+ mensaje
+                binding.txtNombre.text = mensaje+ nombre
                 tts.speak(mensaje + nombre, TextToSpeech.QUEUE_FLUSH, null, "")
             } else {
                 binding.txtNombre.text = mensaje
