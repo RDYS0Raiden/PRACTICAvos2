@@ -39,14 +39,11 @@ private fun OPCIONSW(){
         binding.Sw.setOnCheckedChangeListener { compoundButton, isChecked ->
             if (binding.Sw.isChecked==true) {
 
-
                 binding.txtNombre.text = nombre+mensaje
                 tts.speak(nombre+mensaje,TextToSpeech.QUEUE_FLUSH,null,"")
-
             } else
                 binding.txtNombre.text = mensaje
                 tts.speak(mensaje,TextToSpeech.QUEUE_FLUSH,null,"")
-
         }
 
 }
