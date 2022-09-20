@@ -55,7 +55,6 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         var resultado = if (status == TextToSpeech.SUCCESS) {
             //se puede escribir 500 lineas de codigo pero la ultima tiene que ser el
             //valor que quieres que asuma esa varianle
-            
             //por defecto el lenguaje es ingles...
             //si quieres modificar el lenguaje se hace esto: tts.language= Locale.US
             //tts.language= Locale.US
